@@ -18,6 +18,7 @@ Get-Flix is a web application that allows users to explore and watch a vast coll
 - **User Accounts**: Create an account to personalize your experience.
 - **Watchlist**: Save movies to your watchlist for future viewing.
 - **Responsive Design**: Enjoy a seamless experience on various devices.
+- **Comment Section**: Share your thoughts with fellow viewers.
 - **more to come**
 
 ## Technologies Used
@@ -28,6 +29,7 @@ Get-Flix is a web application that allows users to explore and watch a vast coll
   - TypeScript (React.js)
   - Sass
   - Bootstrap
+  - React
 
 - Backend:
   - Node.js
@@ -47,7 +49,7 @@ To get a local copy of the project up and running, follow these steps:
    ```bash
    git clone https://github.com/Gerosheng/Get-Flix.git
    cd Get-Flix
-2. Install dependencies:
+2. Install dependencies in root folder, server and client:
     ```bash
     npm install
 ### Usage
@@ -55,7 +57,7 @@ To get a local copy of the project up and running, follow these steps:
 
     ```bash
     npm run dev 
-2. Open your web browser and navigate to http://localhost:xxx (to be specified).
+2. Open your web browser and navigate to http://localhost:5050 (to be specified).
 
 3. Explore and enjoy Get-Flix!
 

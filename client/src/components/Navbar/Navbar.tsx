@@ -1,11 +1,36 @@
-import React from 'react'
+// Navbar.tsx
+import React, { useState } from 'react'
 import './Navbar.css'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faSearch } from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'
+
+const apiKey = 'YOUR_TMDB_API_KEY' // Replace with your actual TMDB API key
 
 const Navbar: React.FC = () => {
+  const [query, setQuery] = useState('')
+  const [results, setResults] = useState<any[]>([]) // Adjust the type based on your API response
+  const [error, setError] = useState<string | null>(null)
+  const history = useHistory()
+
+  const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    try {
+      const response = await axios.get(
+        `https://api.themoviedb.org/3/search/multi?api_key=${apiKey}&query=${query}`,
+      )
+      setResults(response.data.results)
+      setError(null)
+      // Redirect to search results page or handle the results as needed
+      history.push(`/search?query=${query}`)
+    } catch (error) {
+      console.error(error)
+      setError('Error searching for movies or TV shows')
+    }
+  }
+
   return (
     <>
       <div>
@@ -30,8 +55,7 @@ const Navbar: React.FC = () => {
               />
             </a>
             <form
-              action="#"
-              method="get"
+              onSubmit={handleSearch}
               className="custom-form search-form flex-fill me-3"
               role="search"
               id="search_form"
@@ -44,6 +68,8 @@ const Navbar: React.FC = () => {
                   id="search"
                   placeholder="Search films, series"
                   aria-label="Search"
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
                 />
                 <button type="submit" className="form-control" id="submit">
                   <FontAwesomeIcon icon={faSearch} />
@@ -68,7 +94,6 @@ const Navbar: React.FC = () => {
                     HomePage
                   </Link>
                 </li>
-
                 <li className="nav-item dropdown">
                   <a
                     className="nav-link dropdown"
@@ -125,4 +150,5 @@ const Navbar: React.FC = () => {
     </>
   )
 }
+
 export default Navbar

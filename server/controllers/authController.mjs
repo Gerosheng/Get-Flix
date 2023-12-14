@@ -25,7 +25,7 @@ const login = async (req, res) => {
 
             responseHandler.created(res, {
                 accessToken,
-                ...loggingUser._doc,
+                user: loggingUser,//...loggingUser._doc,
                 id: loggingUser.id,
                 message: "User logged in successfully",
                 success: true

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 import './Login.css'
 
@@ -9,14 +9,20 @@ const Login: React.FC = () => {
   const [loginError, setLoginError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  let from = location.state?.from?.pathname || "/";
+
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
 
     try {
       setLoading(true)
 
-      const response = await fetch('http://localhost:5050/api/sessionRoutes', {
+      const response = await fetch('http://localhost:5050/api/auth/login', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },
@@ -36,6 +42,7 @@ const Login: React.FC = () => {
     } finally {
       setLoading(false)
     }
+    navigate(from, {replace: true});
   }
 
   return (

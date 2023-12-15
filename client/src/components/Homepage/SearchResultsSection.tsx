@@ -48,3 +48,4 @@ const SearchResultsSection = () => {
 }
 
 export default SearchResultsSection
+

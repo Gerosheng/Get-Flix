@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {  Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 
 const Navbar: React.FC = () => {
   return (
@@ -64,7 +66,7 @@ const Navbar: React.FC = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-lg-auto">
                 <li className="nav-item">
-                  <Link className="nav-link active" to="./Homepage">
+                  <Link className="nav-link active" to="./Homepage" style= {{color:'white'}}>
                     HomePage
                   </Link>
                 </li>

@@ -44,6 +44,7 @@ const MovieDetailPage: React.FC = () => {
 
   return (
     <>
+
       <div
         className="row justify-content-center "
         style={{ margin: 0, padding: 0 }}
@@ -112,6 +113,7 @@ const MovieDetailPage: React.FC = () => {
                   </div>
                 )}
               </div>
+
             </div>
           </div>
         </div>

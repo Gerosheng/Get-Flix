@@ -117,7 +117,14 @@ tvshowRoutes.get('/details/:id', async (req, res) => {
       { trailerKey },
     )
 
-    console.log(detailsToSend)
+    await TvShowModel.findOneAndUpdate(
+      {
+        title: title,
+        overview: synopsis,
+      
+      }
+      , { trailerKey }
+    )
 
     res.json(detailsToSend)
   } catch (error) {

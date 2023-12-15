@@ -7,7 +7,7 @@ const SearchResultsSection = () => {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
   const [error, setError] = useState(null)
-
+// change fetch route
   const handleSearch = async () => {
     try {
       const response = await axios.get(
@@ -38,7 +38,7 @@ const SearchResultsSection = () => {
           <h2>Search Results:</h2>
           <ul>
             {results.map((result) => (
-              <li key={result.id}>{result.title || result.name}</li>
+              <li key={result.id}>{result.title || result.name}<img src={`https://image.tmdb.org/t/p/w500${result.poster_path}`}/></li>
             ))}
           </ul>
         </div>

@@ -3,10 +3,7 @@ import './Navbar.css'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {  Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import SearchBar from './SearchBar'
 import SearchResultsSection from '../Homepage/SearchResultsSection'
 const Navbar: React.FC = () => {
@@ -104,7 +101,7 @@ const Navbar: React.FC = () => {
           </div>
         </nav>
       </div>
-      <SearchResultsSection results={searchResults} />
+      <SearchResultsSection results={searchResults} searchMade={false} />
     </>
   )
 }

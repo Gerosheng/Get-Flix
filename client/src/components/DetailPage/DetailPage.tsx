@@ -1,9 +1,16 @@
 // MovieDetailPage.tsx
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactNode } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
 interface MovieDetail {
+  trailerKey: any;
+  tmdbRating: ReactNode;
+  releaseDate: ReactNode;
+  genres: ReactNode;
+  synopsis: ReactNode;
+  poster_path: any;
+  title: any;
   // Define the types for the movie details
 }
 
@@ -11,7 +18,7 @@ const MovieDetailPage: React.FC = () => {
   const { id } = useParams()
   const [contentDetails, setContentDetails] = useState<MovieDetail | null>(null)
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<Error | null>(null)
+  const [error] = useState<Error | null>(null)
 
   useEffect(() => {
     const fetchContentDetails = async () => {
@@ -21,7 +28,7 @@ const MovieDetailPage: React.FC = () => {
         setContentDetails(response.data)
       } catch (error) {
         console.error('Error fetching content details:', error)
-        setError(error)
+      
       } finally {
         setLoading(false)
       }

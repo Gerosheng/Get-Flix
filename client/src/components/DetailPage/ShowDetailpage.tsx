@@ -1,9 +1,16 @@
 // TVShowDetailPage.tsx
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, ReactNode } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 
 interface TVShowDetail {
+  trailerKey: any;
+  tmdbRating: ReactNode;
+  releaseDate: ReactNode;
+  genres: ReactNode;
+  synopsis: ReactNode;
+  poster_path: any;
+  title: any;
   // Define the types for the TV show details
 }
 
@@ -13,7 +20,7 @@ const TVShowDetailPage: React.FC = () => {
     null,
   )
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<Error | null>(null)
+  const [error] = useState<Error | null>(null)
 
   useEffect(() => {
     const fetchContentDetails = async () => {
@@ -23,7 +30,7 @@ const TVShowDetailPage: React.FC = () => {
         setContentDetails(response.data)
       } catch (error) {
         console.error('Error fetching content details:', error)
-        setError(error)
+
       } finally {
         setLoading(false)
       }

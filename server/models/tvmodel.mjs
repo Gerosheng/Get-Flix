@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 
 const tvShowSchema = new mongoose.Schema({
-  id: Number,
   name: String,
   overview: String,
   first_air_date: Date,

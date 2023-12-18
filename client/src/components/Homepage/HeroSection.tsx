@@ -90,7 +90,7 @@ const HeroSection: React.FC = () => {
       ) : (
         <>
         <hr />  <h1 style={{textAlign:'center', color:'white'}}>Trending</h1><br />
-          <Slider {...sliderSettings}>{renderMovies(trending)}</Slider>
+          <Slider {...sliderSettings}><>{renderMovies(trending)}</></Slider>
 
           <hr /><h1 style={{textAlign:'center', color:'white'}}>Now Playing</h1><br />
           <Slider {...sliderSettings}>{renderMovies(latestMovies)}</Slider>

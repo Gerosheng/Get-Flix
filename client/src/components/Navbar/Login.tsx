@@ -6,7 +6,7 @@ import './Login.css'
 const Login: React.FC = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [loginError, setLoginError] = useState<string | null>(null)
+  const [loginError, setLoginError] = useState<string>('')
   const [loading, setLoading] = useState(false)
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -29,9 +29,9 @@ const Login: React.FC = () => {
 
       const data = await response.json()
       console.log('Login successful. Data:', data)
-      setLoginError(null)
+      setLoginError('')
     } catch (error) {
-      console.error('Error during login:', loginError.message)
+      console.error('Error during login:', loginError)
       setLoginError('Invalid email or password')
     } finally {
       setLoading(false)

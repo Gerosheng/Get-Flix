@@ -117,7 +117,6 @@ tvshowRoutes.get('/details/:id', async (req, res) => {
       { trailerKey },
     )
 
-    console.log(detailsToSend)
 
     res.json(detailsToSend)
   } catch (error) {

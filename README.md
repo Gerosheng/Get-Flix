@@ -66,6 +66,7 @@ To get a local copy of the project up and running, follow these steps:
    git clone https://github.com/Gerosheng/Get-Flix.git
    cd Get-Flix
 2. Install dependencies in root folder, server and client:
+2. Install dependencies in root folder, server and client:
     ```bash
     npm install
 ### Usage
@@ -96,3 +97,4 @@ For major changes, please open an issue first to discuss the proposed changes.
 This project ain't licensed to nuttin' yet
 
 Happy Watching! 🎬
+
